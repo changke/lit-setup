@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lit Setup</title>
+  <style>
+    ui-foo,
+    ui-bar {
+      display: block;
+    }
+  </style>
+  <script type="module" src="dest/foo/foo.js"></script>
+  <script type="module" src="dest/bar/bar.js"></script>
+</head>
+
+<body>
+  <ui-foo title="Lit Setup">
+    <ui-bar items="Lit,esbuild,TypeScript,ESLint"></ui-bar>
+  </ui-foo>
+</body>
+
+</html>
