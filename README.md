@@ -6,7 +6,8 @@ Usage:
 
 ```bash
 npm i
-node build.js
+npm run build
+cd dest/
 python -m http.server
 ```
 

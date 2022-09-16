@@ -4,7 +4,7 @@
     "target": "ES2019",
     "module": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "experimentalDecorators": true
   },
   "include": ["src/**/*.ts"]
