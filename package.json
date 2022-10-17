@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .ts src",
+    "typecheck": "tsc --noEmit",
     "build": "node build.mjs"
   },
   "keywords": [
@@ -17,17 +18,17 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "lit": "^2.0.2"
+    "lit": "^2.4.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "cpy": "^9.0.1",
     "del": "^7.0.0",
-    "esbuild": "^0.15.7",
-    "eslint": "^8.2.0",
+    "esbuild": "^0.15.11",
+    "eslint": "^8.25.0",
     "globby": "^13.1.2",
-    "typescript": "^4.5.2"
+    "typescript": "^4.8.4"
   }
 }
