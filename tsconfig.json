@@ -1,11 +1,12 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2019",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
     "module": "ES2020",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "target": "ES2021"
   },
   "include": ["src/**/*.ts"]
 }
