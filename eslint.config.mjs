@@ -2,6 +2,7 @@
 import globals from 'globals';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import {configs} from 'eslint-plugin-lit';
 
 export default tseslint.config(
   {
@@ -9,6 +10,7 @@ export default tseslint.config(
     files: ['**/*.ts'],
     extends: [
       eslint.configs.recommended,
+      configs['flat/recommended'],
       ...tseslint.configs.recommendedTypeChecked,
       ...tseslint.configs.stylisticTypeChecked
     ],
