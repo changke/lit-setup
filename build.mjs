@@ -1,18 +1,18 @@
-import {deleteAsync} from 'del';
-import cpy from 'cpy';
-import {globby} from 'globby';
+import {rm, cp, glob} from 'node:fs/promises';
 import {build} from 'esbuild';
 
 // delete dest
-const clean = () => deleteAsync('dest/*');
+const clean = () => rm('dest', {recursive: true, force: true});
 
 // copy assets
-const copy = () => cpy(['assets', 'index.html'], 'dest');
+const copy = () => Promise.all([
+  cp('assets', 'dest/assets', {recursive: true}),
+  cp('index.html', 'dest/index.html')
+]);
 
 const bundle = async () => {
-  // get files for bundling
-  const entries = await globby('src/**/*.ts');
-  // bundle
+  const entries = await Array.fromAsync(glob('src/**/*.wc.ts'));
+  console.log('Entry points:', entries);
   return build({
     entryPoints: entries,
     bundle: true,

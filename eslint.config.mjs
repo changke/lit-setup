@@ -1,10 +1,12 @@
 // @ts-check
+import {defineConfig} from 'eslint/config';
 import globals from 'globals';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import {configs} from 'eslint-plugin-lit';
+import stylistic from '@stylistic/eslint-plugin';
 
-export default tseslint.config(
+export default defineConfig([
   {
     name: 'my/typescript-lint',
     files: ['**/*.ts'],
@@ -19,8 +21,7 @@ export default tseslint.config(
         ...globals.browser
       },
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname
+        projectService: true
       }
     }
   },
@@ -37,5 +38,23 @@ export default tseslint.config(
   {
     name: 'my/ignores',
     ignores: ['dest/*']
+  },
+  {
+    name: 'my/coding-styles',
+    files: ['**/*.js', '**/*.mjs', '**/*.ts'],
+    extends: [stylistic.configs.customize({
+      blockSpacing: false,
+      braceStyle: '1tbs',
+      semi: true
+    })],
+    rules: {
+      '@stylistic/arrow-parens': ['error', 'as-needed', {requireForBlockBody: false}],
+      '@stylistic/comma-dangle': ['error', 'never'],
+      '@stylistic/object-curly-spacing': ['error', 'never'],
+      '@stylistic/quotes': ['warn', 'single'],
+      '@stylistic/quote-props': 0,
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/space-before-function-paren': ['error', {anonymous: 'ignore', asyncArrow: 'always', named: 'never'}]
+    }
   }
-);
+]);
