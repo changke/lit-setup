@@ -21,14 +21,14 @@
     "lit": "^3.3.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@stylistic/eslint-plugin": "^5.6.1",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.9.0",
     "@tsconfig/recommended": "^1.0.13",
-    "esbuild": "^0.27.2",
-    "eslint": "^9.39.2",
-    "eslint-plugin-lit": "^2.1.1",
-    "globals": "^17.0.0",
+    "esbuild": "^0.27.3",
+    "eslint": "^10.0.1",
+    "eslint-plugin-lit": "^2.2.1",
+    "globals": "^17.3.0",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.51.0"
+    "typescript-eslint": "^8.56.0"
   }
 }
