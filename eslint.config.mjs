@@ -37,7 +37,7 @@ export default defineConfig([
   },
   {
     name: 'my/ignores',
-    ignores: ['dest/*']
+    ignores: ['dest/**']
   },
   {
     name: 'my/coding-styles',

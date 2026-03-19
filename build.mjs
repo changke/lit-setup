@@ -12,7 +12,6 @@ const copy = () => Promise.all([
 
 const bundle = async () => {
   const entries = await Array.fromAsync(glob('src/**/*.wc.ts'));
-  console.log('Entry points:', entries);
   return build({
     entryPoints: entries,
     bundle: true,
@@ -26,4 +25,9 @@ const bundle = async () => {
 const copyAndBundle = () => Promise.all([copy(), bundle()]);
 
 // go
-clean().then(copyAndBundle);
+clean()
+  .then(copyAndBundle)
+  .catch(err => {
+    console.error('Build failed:', err);
+    process.exit(1);
+  });

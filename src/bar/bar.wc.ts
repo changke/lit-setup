@@ -13,13 +13,18 @@ export class Bar extends LitElement {
     }
   `;
 
-  @property()
-  items = '';
+  @property({
+    converter: {
+      fromAttribute: (value: string | null) => value ? value.split(',') : [],
+      toAttribute: (value: string[]) => value.join(',')
+    }
+  })
+  items: string[] = [];
 
   render() {
     return html`
       <ul>
-        ${this.items.split(',').map((i, idx) => html`<li class="top${(idx + 1).toString()}">${i}</li>`)}
+        ${this.items.map((i, idx) => html`<li class="top${(idx + 1).toString()}">${i.trim()}</li>`)}
       </ul>
     `;
   }

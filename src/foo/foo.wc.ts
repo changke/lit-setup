@@ -13,12 +13,12 @@ export class Foo extends LitElement {
   `;
 
   @property()
-  title = 'Untitled';
+  heading = 'Untitled';
 
   render() {
     return html`
       <div class="foo">
-        <h3>${this.title}</h3>
+        <h3>${this.heading}</h3>
         <slot></slot>
       </div>
     `;
