@@ -19,7 +19,7 @@ export class Bar extends LitElement {
       toAttribute: (value: string[]) => value.join(',')
     }
   })
-  items: string[] = [];
+  accessor items: string[] = [];
 
   render() {
     return html`

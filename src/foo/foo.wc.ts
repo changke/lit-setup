@@ -13,7 +13,7 @@ export class Foo extends LitElement {
   `;
 
   @property()
-  heading = 'Untitled';
+  accessor heading = 'Untitled';
 
   render() {
     return html`

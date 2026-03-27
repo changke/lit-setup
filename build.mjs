@@ -17,7 +17,8 @@ const bundle = async () => {
     bundle: true,
     format: 'esm',
     splitting: true,
-    outdir: 'dest/wc'
+    outdir: 'dest/wc',
+    target: 'es2024'
   });
 };
 
