@@ -1,9 +1,10 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "rootDir": "./src",
     "target": "ES2024"
   },
   "include": ["src/**/*.ts"]

@@ -25,21 +25,26 @@ This file contains guidelines and commands for agentic coding agents working in 
 
 ```
 src/
-├── foo/foo.wc.ts    - Example Lit component
-└── bar/bar.wc.ts    - Example Lit component
-dest/                - Build output directory
+├── foo/foo.wc.ts    - <ui-foo> Lit component (heading property, slot)
+└── bar/bar.wc.ts    - <ui-bar> Lit component (items array with custom converter)
+dest/                - Build output directory (git-ignored)
 assets/              - Static assets copied to build
-build.mjs           - Custom esbuild build script
+index.html           - Source HTML entry point
+build.mjs            - Custom esbuild build script
+eslint.config.mjs    - ESLint flat config
+tsconfig.json        - TypeScript config
 ```
 
 ## Code Style Guidelines
 
 ### TypeScript/Lit Configuration
 
-- Target: ES2023 with DOM libraries
+- Target: ES2024 with DOM libraries
 - Module system: ESNext with bundler resolution
+- Module resolution: `Bundler` (esbuild-compatible)
 - Decorators: Enabled for Lit (`@customElement`, `@property`)
-- Class fields: Use `useDefineForClassFields: false`
+- Class fields: `useDefineForClassFields: false` (inherited from `@tsconfig/recommended`)
+- Type-aware linting: enabled via `typescript-eslint` `recommendedTypeChecked` + `stylisticTypeChecked`
 
 ### Import Conventions
 
@@ -65,7 +70,7 @@ export class ComponentName extends LitElement {
   `;
 
   @property()
-  propertyName = 'defaultValue';
+  accessor propertyName = 'defaultValue';
 
   render() {
     return html`
@@ -84,6 +89,8 @@ export class ComponentName extends LitElement {
 - Arrow function parentheses: `arg => expression` for single params
 - Function declarations: `function name()` (no space before parentheses)
 - Anonymous functions: `(arg) => {}` (space before parentheses for block body)
+- Lit-specific rules enforced via `eslint-plugin-lit`
+- Stylistic rules enforced via `@stylistic/eslint-plugin`
 
 ### Naming Conventions
 
